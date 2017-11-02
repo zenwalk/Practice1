@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>InspireTree</title>
+        <link rel="stylesheet" href="../build/inspire-tree-light.css" />
+        <link rel="stylesheet" href="demo.css" />
+        <style>
+            .target {
+                background: white;
+                width: 200px;
+                height: 100px;
+            }
+
+            body {
+                display: flex;
+                flex-direction: row;
+            }
+
+            body > div {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>Drag and drop!</p>
+            <div class="tree"></div>
+        </div>
+        <div>
+            <p>Drag and drop between trees!</p>
+            <div class="tree2"></div>
+        </div>
+        <div>
+            <p>Custom drop targets!</p>
+            <ol class="target" ondragover="onDragOver(event)" ondrop="onDrop(event)"></ol>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+    <script src="require.config.js"></script>
+    <script>
+        require([
+            'jquery',
+            'inspire-tree',
+            'inspire-tree-dom'
+        ], function($, InspireTree, InspireTreeDOM) {
+            window.onDragOver = function(event) {
+                event.preventDefault();
+            }
+
+            // Example custom logic for non-tree drop targets
+            window.onDrop = function(event) {
+                event.preventDefault();
+
+                // Get the data from the drag transfer
+                var treeId = event.dataTransfer.getData('treeId');
+                var nodeId = event.dataTransfer.getData('nodeId');
+
+                // Find the owning tree. You can skip this step if you only have one instance available
+                var tree = InspireTreeDOM.getTreeById(treeId);
+
+                // Remove the node from its previous context
+                var exported = tree.node(nodeId).remove();
+
+                // For demo purposes only, add the node text here.
+                var li = document.createElement('li');
+                li.innerText = exported.text;
+                event.target.appendChild(li);
+            }
+
+            var tree = new InspireTree({
+                data: $.getJSON('sample-data/full.json')
+            });
+
+            var dom = new InspireTreeDOM(tree, {
+                target: '.tree',
+                dragAndDrop: true
+            });
+
+            // Create a second tree, allowing drag and drop between tree instances
+            var tree2 = new InspireTree({
+                data: []
+            });
+
+            var dom2 = new InspireTreeDOM(tree2, {
+                target: '.tree2',
+                dragAndDrop: true
+            });
+
+            // Listen to drop events
+            [tree, tree2].forEach(function(t) {
+                t.on('node.drop', function(event, node, target, index) {
+                    console.log('node.drop', event, node, target, index);
+                });
+            });
+        });
+    </script>
+</html>

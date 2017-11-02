@@ -1,0 +1,51 @@
+{
+  "name": "inspire-tree",
+  "version": "4.0.0",
+  "description": "Inspired JavaScript Tree UI Component",
+  "repository": "https://github.com/helion3/inspire-tree",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "chai": "^4.1.1",
+    "docdown": "^0.7.2",
+    "es6-promise": "^4.1.1",
+    "eslint": "^4.5.0",
+    "eventemitter2": "^4.1.2",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.2",
+    "mocha": "^4.0.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-gzip": "^1.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.13.0",
+    "typescript": "^2.4.2",
+    "uuid": "^3.1.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "docs": "./scripts/docs.js",
+    "test": "./node_modules/mocha/bin/mocha test --recursive",
+    "watch": "rollup -c -w",
+    "setup": "cp hooks/pre-commit .git/hooks/pre-commit",
+    "lint": "eslint test src *.js",
+    "deploy": "./scripts/docs.js && DIST=1 rollup -c && DIST=1 MIN=1 rollup -c"
+  },
+  "main": "dist/inspire-tree.js",
+  "types": "./inspire-tree.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "*.json",
+    "*.ts",
+    "LICENSE",
+    "README.md"
+  ]
+}
