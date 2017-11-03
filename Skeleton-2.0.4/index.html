@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -27,6 +28,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="libs/inspire-tree-dom-master/dist/inspire-tree-light.min.css">
 </head>
+
 <body>
 
   <!-- Primary Page Layout
@@ -37,48 +39,52 @@
       <div class="one-half column" style="margin-top: 25%">
         <div id="tree"></div>
       </div>
-      
+      <div class="one-half column" style="margin-top: 25%">
+        <div id="app"></div>
+      </div>
     </div>
   </div>
 
 
 
-<script>
-var dojoConfig = {
-  async: true,
-  baseUrl: 'http://' + location.host,
-  package: [
-    "app",
-  ],
-  paths: {
-    "app": "app",
-    "jquery": 'https://cdn.bootcss.com/jquery/3.2.1/jquery.min',
-    "jqTree": 'libs/mbraak-jqTree-9102352/build/tree.jquery',
-    "lodash": 'https://cdn.bootcss.com/lodash.js/4.17.4/lodash.min',
-    'inspire-tree': 'libs/inspire-tree-4.0.0/dist/inspire-tree.min',
-    'inspire-tree-dom': 'libs/inspire-tree-dom-master/dist/inspire-tree-dom.min',
-    'mitt': 'libs/mitt.umd'
-  },
-  map: {
-    '*': {
-      'use': 'app/use',
-      '$': 'jquery'
+  <script>
+    var dojoConfig = {
+      async: true,
+      baseUrl: 'http://' + location.host,
+      package: [
+        "app",
+      ],
+      paths: {
+        "app": "app",
+        "jquery": 'https://cdn.bootcss.com/jquery/3.2.1/jquery.min',
+        "jqTree": 'libs/mbraak-jqTree-9102352/build/tree.jquery',
+        "lodash": 'https://cdn.bootcss.com/lodash.js/4.17.4/lodash.min',
+        'inspire-tree': 'libs/inspire-tree-4.0.0/dist/inspire-tree.min',
+        'inspire-tree-dom': 'libs/inspire-tree-dom-master/dist/inspire-tree-dom.min',
+        'mitt': 'libs/mitt.umd',
+        'vue': 'https://cdn.bootcss.com/vue/2.4.4/vue.min'
+      },
+      map: {
+        '*': {
+          'use': 'app/use',
+          '$': 'jquery'
+        }
+      },
+      use: {
+        "jqTree": {
+          deps: ['jquery']
+        }
+      }
     }
-  },
-  use: {
-    "jqTree": {
-      deps: ['jquery']
-    }
-  }
-}
-</script>  
-<script src="https://cdn.bootcss.com/dojo/1.11.0-rc5/dojo.js"></script>
-<script>
-  require(['app/main'], function () {
-    
-  })
-</script>
-<!-- End Document
+  </script>
+  <script src="libs/dojo.js"></script>
+  <script>
+    require(['app/main'], function () {
+
+    })
+  </script>
+  <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
