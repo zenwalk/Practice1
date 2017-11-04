@@ -27,6 +27,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="libs/inspire-tree-dom-master/dist/inspire-tree-light.min.css">
+  <link rel="stylesheet" href="css/grid.css">
 </head>
 
 <body>
@@ -35,48 +36,41 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
-
-      <div class="one-half column" style="margin-top: 25%">
+      <div class="one-half column">
         <div id="tree"></div>
       </div>
-      <div class="one-half column" style="margin-top: 25%">
+      <div class="one-half column">
         <div id="app"></div>
       </div>
     </div>
+    <div id="box" class="row">
+      <div class="header">this is a header</div>
+      <div class="sidebar">this is a sidebar</div>
+      <main>
+        <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium consectetur mollitia voluptates neque voluptas.
+          Laborum voluptatem voluptates laudantium? Quibusdam, modi.</div>
+        <div class="card">Iusto voluptas officiis, illum necessitatibus error unde nam perferendis cum nihil quia dolorem voluptatem quae,
+          nisi itaque iste id ullam?</div>
+        <div class="card">Fugiat nisi recusandae sint eaque libero sunt nam deleniti tenetur doloribus, dolore, a iste ipsum ea. Suscipit fuga
+          veniam ad.</div>
+        <div class="card">Consequuntur blanditiis, molestias corrupti cumque itaque nulla fuga quis ducimus nobis veniam perspiciatis voluptatibus.
+          Sunt repellendus a delectus nihil. Ipsa.</div>
+        <div class="card">Dolorem alias voluptate minus ad possimus nihil quod autem fuga eius voluptatum doloribus amet, eligendi sit recusandae
+          dolor sequi incidunt!</div>
+        <div class="card">Illum amet molestias, dolor nam optio id sit pariatur quasi tempora doloremque, magnam veritatis? Quia corrupti veniam
+          voluptas sed libero?</div>
+        <div class="card">Tempore, excepturi numquam qui et, enim cumque odio exercitationem eveniet neque suscipit animi provident in, totam
+          rerum temporibus saepe modi?</div>
+        <div class="card">Tempore aliquid voluptas ratione facere delectus dolor ipsam! Aliquid alias vel obcaecati nemo deserunt consectetur
+          reiciendis esse soluta odio excepturi?</div>
+        <div class="card">Consectetur dolorem repellat molestiae corporis! Nisi, aliquid est perspiciatis asperiores harum sunt maiores, autem
+          laboriosam voluptatem laborum rem doloremque nam!</div>
+      </main>
+      <div class="footer">this is a footer</div>
+    </div>
   </div>
 
-
-
-  <script>
-    var dojoConfig = {
-      async: true,
-      baseUrl: 'http://' + location.host,
-      package: [
-        "app",
-      ],
-      paths: {
-        "app": "app",
-        "jquery": 'https://cdn.bootcss.com/jquery/3.2.1/jquery.min',
-        "jqTree": 'libs/mbraak-jqTree-9102352/build/tree.jquery',
-        "lodash": 'https://cdn.bootcss.com/lodash.js/4.17.4/lodash.min',
-        'inspire-tree': 'libs/inspire-tree-4.0.0/dist/inspire-tree.min',
-        'inspire-tree-dom': 'libs/inspire-tree-dom-master/dist/inspire-tree-dom.min',
-        'mitt': 'libs/mitt.umd',
-        'vue': 'https://cdn.bootcss.com/vue/2.4.4/vue.min'
-      },
-      map: {
-        '*': {
-          'use': 'app/use',
-          '$': 'jquery'
-        }
-      },
-      use: {
-        "jqTree": {
-          deps: ['jquery']
-        }
-      }
-    }
-  </script>
+  <script src="app/dojoConfig.js"></script>
   <script src="libs/dojo.js"></script>
   <script>
     require(['app/main'], function () {
