@@ -1,0 +1,62 @@
+#box {
+    height: 100vh;
+	display: -ms-grid;
+    -ms-grid-columns: 1fr 3fr;
+    -ms-grid-rows: 50px auto 50px;
+}
+
+.header {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+}
+
+.footer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    -ms-grid-row: 3;
+}
+
+.header,
+.footer {
+    padding: 20px;
+	background-color: lightslategray;
+}
+
+.sidebar {
+	background-color: lightsteelblue;
+    padding: 20px;
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+}
+
+main {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr 20px 1fr 20px 1fr;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+}
+
+main > .card:nth-child(1) {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+
+main > .card:nth-child(2) {
+    -ms-grid-column: 3;
+    -ms-grid-row: 1;
+}
+
+main > .card:nth-child(3) {
+    -ms-grid-column: 5;
+    -ms-grid-row: 1;
+}
+
+#box .card {
+	background-color: #ccc;
+	padding: 20px;
+}
+
+#box .card:nth-child(odd) {
+	background-color: #efefef;
+}
