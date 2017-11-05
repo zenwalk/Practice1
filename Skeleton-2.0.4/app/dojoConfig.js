@@ -11,7 +11,8 @@ var dojoConfig = {
 		'inspire-tree-dom': 'libs/inspire-tree-dom-master/dist/inspire-tree-dom.min',
 		mitt: 'libs/mitt.umd',
 		vue: 'https://cdn.bootcss.com/vue/2.4.4/vue.min',
-		'vue-qriously': 'libs/vue-qriously'
+        'vue-qriously': 'libs/vue-qriously',
+        'at-ui': 'libs/at-ui/at'
 	},
 	map: {
 		'*': {

@@ -1,6 +1,6 @@
 define(
-  ["require", "jquery", "app/myTree", "app/eventBus", "vue", "vue-qriously", "app/Comp"],
-  function(require, $, Tree, bus, Vue, VueQriously, Comp) {
+  ["require", "jquery", "app/myTree", "app/eventBus", "vue", "vue-qriously", "app/Comp", "at-ui"],
+  function(require, $, Tree, bus, Vue, VueQriously, Comp, AtUi) {
     "use strict";
     console.log("main");
     bus.on("tree-click", function(data) {
@@ -13,9 +13,11 @@ define(
     Vue.component("comp", Comp);
     Vue.use(VueQriously);
 
+    Vue.use(AtUi.default);
+
     new Vue({
       el: "#app",
-      template: "<div><comp></comp><qriously value='Hello World!' :size='200' /></div>"
+      template: '<div><comp></comp><qriously value="Hello World!" :size="200" /><at-button type="primary">Primary Button</at-button></div>'
       // template: '<h1>world</h1>'
     });
   }
